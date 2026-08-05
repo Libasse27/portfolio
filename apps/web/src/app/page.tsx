@@ -6,10 +6,12 @@ import { Button } from '@portfolio/ui';
  */
 export default function HomePage() {
   return (
-    <main>
-      <h1>[À COMPLÉTER : Nom complet]</h1>
-      <p>[À COMPLÉTER : proposition de valeur — MODULE 2]</p>
-      <Button variant="primary">Voir les projets</Button>
+    <main className="p-8">
+      <h1 className="font-heading text-app-text text-3xl font-bold">[À COMPLÉTER : Nom complet]</h1>
+      <p className="text-app-text-muted mt-2">[À COMPLÉTER : proposition de valeur — MODULE 2]</p>
+      <Button variant="primary" className="mt-6">
+        Voir les projets
+      </Button>
     </main>
   );
 }

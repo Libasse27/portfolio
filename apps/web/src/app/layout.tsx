@@ -1,8 +1,27 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Unbounded, Public_Sans, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-body' });
+// Direction typographique validée en Phase 1 : Unbounded (titres) + Public Sans
+// (corps) + JetBrains Mono (code/données), voir docs/03-DesignSystem/.
+const unbounded = Unbounded({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+  variable: '--font-heading',
+});
+const publicSans = Public_Sans({
+  subsets: ['latin'],
+  weight: ['400', '600'],
+  display: 'swap',
+  variable: '--font-body',
+});
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+  variable: '--font-mono',
+});
 
 export const metadata: Metadata = {
   title: '[À COMPLÉTER : Nom complet] — [À COMPLÉTER : Titre professionnel]',
@@ -11,8 +30,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={inter.variable}>
-      <body>{children}</body>
+    <html
+      lang="fr"
+      className={`${unbounded.variable} ${publicSans.variable} ${jetBrainsMono.variable}`}
+    >
+      <body className="font-sans">{children}</body>
     </html>
   );
 }

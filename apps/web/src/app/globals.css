@@ -1,3 +1,81 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*
+ * Palette "Teranga Slate" (Phase 1 — Design System, choix validé le 2026-08-05).
+ * Neutres froids ; la couleur primaire double comme accent du pôle Développement
+ * (MODULE 4 : le développement est le pôle mis en avant en premier).
+ * Sombre par défaut (MODULE 12) ; le système respecte prefers-color-scheme en
+ * l'absence de préférence explicite, et un futur sélecteur pourra forcer
+ * data-theme="dark"|"light" (cookie), qui reste alors prioritaire.
+ */
+:root {
+  --color-bg: #12161a;
+  --color-surface: #191e23;
+  --color-border: #2b333a;
+  --color-text: #edf1f4;
+  --color-text-muted: #9facb6;
+
+  --color-primary: #1496b8; /* aussi l'accent du pôle Dev */
+  --color-pole-compta: #d48a1e;
+  --color-pole-infra: #7b7ff5;
+
+  --color-success: #22a559;
+  --color-warning: #eab308;
+  --color-error: #e5484d;
+  --color-info: #3b82f6;
+
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 2px 4px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-3: 0 4px 8px rgba(0, 0, 0, 0.45), 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-4: 0 8px 16px rgba(0, 0, 0, 0.5), 0 4px 8px rgba(0, 0, 0, 0.3);
+  --shadow-5: 0 16px 32px rgba(0, 0, 0, 0.55), 0 8px 16px rgba(0, 0, 0, 0.35);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-bg: #f7f9fa;
+    --color-surface: #ffffff;
+    --color-border: #dfe5e9;
+    --color-text: #12161a;
+    --color-text-muted: #5b6670;
+
+    --color-primary: #0c5d74;
+    --color-pole-compta: #92430a;
+    --color-pole-infra: #4f46e5;
+
+    --shadow-1: 0 1px 2px rgba(15, 23, 30, 0.06);
+    --shadow-2: 0 2px 4px rgba(15, 23, 30, 0.08), 0 1px 2px rgba(15, 23, 30, 0.06);
+    --shadow-3: 0 4px 8px rgba(15, 23, 30, 0.1), 0 2px 4px rgba(15, 23, 30, 0.06);
+    --shadow-4: 0 8px 16px rgba(15, 23, 30, 0.12), 0 4px 8px rgba(15, 23, 30, 0.06);
+    --shadow-5: 0 16px 32px rgba(15, 23, 30, 0.16), 0 8px 16px rgba(15, 23, 30, 0.08);
+  }
+}
+
+:root[data-theme='dark'] {
+  --color-bg: #12161a;
+  --color-surface: #191e23;
+  --color-border: #2b333a;
+  --color-text: #edf1f4;
+  --color-text-muted: #9facb6;
+  --color-primary: #1496b8;
+  --color-pole-compta: #d48a1e;
+  --color-pole-infra: #7b7ff5;
+}
+
+:root[data-theme='light'] {
+  --color-bg: #f7f9fa;
+  --color-surface: #ffffff;
+  --color-border: #dfe5e9;
+  --color-text: #12161a;
+  --color-text-muted: #5b6670;
+  --color-primary: #0c5d74;
+  --color-pole-compta: #92430a;
+  --color-pole-infra: #4f46e5;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}

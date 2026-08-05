@@ -1,2 +1,11 @@
 export { Button, type ButtonProps, type ButtonVariant } from './components/Button';
-export { spacing, radius, type SpacingToken, type RadiusToken } from './tokens';
+export {
+  spacing,
+  radius,
+  elevation,
+  fontFamily,
+  type SpacingToken,
+  type RadiusToken,
+  type ElevationToken,
+  type FontFamilyToken,
+} from './tokens';
