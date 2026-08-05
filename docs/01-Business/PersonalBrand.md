@@ -6,19 +6,20 @@
 
 ## Identité
 
-| Champ                       | Valeur                                                                               |
-| --------------------------- | ------------------------------------------------------------------------------------ |
-| Nom complet                 | Libaase Dia                                                                          |
-| Titre                       | Développeur Web Full-Stack · Technicien Comptable · Technicien Informatique & Réseau |
-| Localisation                | Dakar, Sénégal — zone d'intervention : Sénégal, UEMOA/CEDEAO, international (remote) |
-| Langues                     | Français (langue de travail), Anglais (intermédiaire), Wolof (courant)               |
-| Disponibilité               | Ouvert aux opportunités                                                              |
-| Téléphone / WhatsApp        | +221 77 382 85 22                                                                    |
-| Email                       | libdevprod@gmail.com                                                                 |
-| GitHub                      | github.com/Libasse27                                                                 |
-| LinkedIn                    | linkedin.com/in/libasse-dia-1a30b178                                                 |
-| Nom de domaine              | `[À COMPLÉTER]`                                                                      |
-| Forme légale / NINEA / RCCM | `[À COMPLÉTER]`                                                                      |
+| Champ                       | Valeur                                                                                                                          |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Nom complet                 | Libaase Dia                                                                                                                     |
+| Titre                       | Développeur Web Full-Stack · Technicien Comptable · Technicien Informatique & Réseau                                            |
+| Localisation                | Dakar, Sénégal — zone d'intervention : Sénégal, UEMOA/CEDEAO, international (remote)                                            |
+| Langues                     | Français (langue de travail), Anglais (intermédiaire), Wolof (courant)                                                          |
+| Disponibilité               | Ouvert aux opportunités                                                                                                         |
+| Téléphone / WhatsApp        | +221 77 382 85 22                                                                                                               |
+| Email                       | libdevprod@gmail.com                                                                                                            |
+| GitHub                      | github.com/Libasse27                                                                                                            |
+| LinkedIn                    | linkedin.com/in/libasse-dia-1a30b178                                                                                            |
+| Nom de domaine              | Pas encore acquis — à choisir et enregistrer au lancement du portfolio                                                          |
+| Forme légale / NINEA / RCCM | Non formalisé — prestataire indépendant à ce jour ; structure légale prévue à la commercialisation des produits SaaS (SIH, ERP) |
+| Slogan                      | « Vos process métier, transformés en logiciel fiable »                                                                          |
 
 ## 3.1 — Qui suis-je
 

@@ -30,7 +30,6 @@ principal du Hero.
 
 ## Disponibilité affichée
 
-Statut : **Ouvert aux opportunités**.
-Modalités : `[À COMPLÉTER — à confirmer : Freelance / Mission longue / Temps
-partiel / Remote / Hybride]`.
-Délai de démarrage : `[À COMPLÉTER]`.
+Statut : **Disponible immédiatement**.
+Modalités : **Freelance, Mission longue, Hybride** (présentiel Dakar / remote).
+Délai de démarrage : **Immédiat**.

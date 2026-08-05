@@ -46,9 +46,14 @@ comme des activités séparées ou dépassées.
 (reporting, justificatifs) — pas d'expérience réelle à ce jour, donc retiré
 du MODULE 3.8 pour ce profil.
 
-## Points encore ouverts
+## Points tranchés (2026-08-05)
 
-- Nom de domaine et statut légal (NINEA/RCCM) : `[À COMPLÉTER]`.
-- Confidentialité des projets SIH/ERP (public / partiel / sous NDA) à
-  trancher avant rédaction des fiches projets (MODULE 6).
-- Modalités précises de disponibilité (temps plein / partiel / hybride).
+- **Confidentialité des projets** : SIH et ERP tous deux en **public** — fiches
+  projets complètes (MODULE 6.1), sans restriction NDA.
+- **Disponibilité** : immédiate, modalités Freelance / Mission longue / Hybride
+  (voir `Objectifs.md`).
+- **Nom de domaine et statut légal (NINEA/RCCM)** : non encore acquis /
+  formalisés, décision volontairement reportée au lancement effectif du
+  portfolio et à la commercialisation des produits SaaS (voir
+  `PersonalBrand.md`) — n'est plus un point bloquant pour la suite du
+  protocole.
