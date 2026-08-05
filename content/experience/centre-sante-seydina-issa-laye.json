@@ -1,0 +1,22 @@
+{
+  "entreprise": "Centre de Santé Seydina Issa Laye",
+  "secteur": "Santé",
+  "poste": "Technicien informatique et réseau",
+  "type": "Prestation",
+  "periode": { "debut": "2022", "fin": null },
+  "lieu": "Cambérène, Dakar, Sénégal",
+  "contexte": "Prestataire informatique en continu pour un centre de santé : parc informatique, réseau local, assistance aux utilisateurs.",
+  "responsabilites": [
+    "Maintenir et administrer le parc informatique du centre de santé",
+    "Assurer la disponibilité et la stabilité du réseau local",
+    "Fournir une assistance technique aux utilisateurs (support N1/N2)",
+    "Réaliser la maintenance préventive des équipements"
+  ],
+  "realisations": [
+    "Meilleure disponibilité des équipements informatiques [À QUANTIFIER]",
+    "Réduction des interruptions de service grâce à la maintenance préventive [À QUANTIFIER]",
+    "Stabilité renforcée de l'infrastructure réseau [À QUANTIFIER]"
+  ],
+  "technologies": [],
+  "polesMobilises": ["infra"]
+}
