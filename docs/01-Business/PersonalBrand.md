@@ -12,7 +12,7 @@
 | Titre                       | Développeur Web Full-Stack · Technicien Comptable · Technicien Informatique & Réseau                                            |
 | Localisation                | Dakar, Sénégal — zone d'intervention : Sénégal, UEMOA/CEDEAO, international (remote)                                            |
 | Langues                     | Français (langue de travail), Anglais (intermédiaire), Wolof (courant)                                                          |
-| Disponibilité               | Ouvert aux opportunités                                                                                                         |
+| Disponibilité               | Disponible immédiatement (Freelance, Mission longue, Hybride)                                                                   |
 | Téléphone / WhatsApp        | +221 77 382 85 22                                                                                                               |
 | Email                       | libdevprod@gmail.com                                                                                                            |
 | GitHub                      | github.com/Libasse27                                                                                                            |
