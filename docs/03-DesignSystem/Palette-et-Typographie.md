@@ -66,8 +66,8 @@ poids 400/700, 400/600, 400/700), exposées en variables CSS
 
 ## Reste à faire (hors périmètre de cette itération)
 
-- Sélecteur de thème clair/sombre avec persistance (cookie), prévu au
-  MODULE 15 (V1) / à construire avec la section Navigation (Phase 4).
+- ~~Sélecteur de thème clair/sombre avec persistance (cookie)~~ — livré en
+  Phase 2, voir `docs/02-Architecture/adr/0002-i18n-theme-navigation.md`.
 - Composants primitifs additionnels (Card, Input, Badge) — à ajouter au fil
   du développement des sections (Phase 4), pas en une seule fois.
 - Vérification finale de contraste WCAG AA sur toutes les combinaisons

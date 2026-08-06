@@ -13,9 +13,12 @@
     "clean": "rm -rf .next dist coverage .turbo"
   },
   "dependencies": {
+    "@portfolio/i18n": "workspace:*",
     "@portfolio/ui": "workspace:*",
     "@portfolio/utils": "workspace:*",
+    "lucide-react": "^1.28.0",
     "next": "^15.1.3",
+    "next-intl": "^4.13.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

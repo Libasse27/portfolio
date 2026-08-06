@@ -10,8 +10,9 @@ Piloté par le master prompt : [`docs/00-MasterPrompt/MasterPrompt.md`](./docs/0
 - **PHASE 0 — Vision & Cadrage** : validée (voir `docs/01-Business`).
 - **PHASE 1 — Branding & Design System** : validée (palette Teranga Slate,
   typographie, tokens, primitive Button — voir `docs/03-DesignSystem`).
-- **PHASE 2 — Architecture & Fondations** : initialisée (ce dépôt) ; i18n et
-  navigation restent à construire avec la Phase 4.
+- **PHASE 2 — Architecture & Fondations** : validée (monorepo, CI,
+  internationalisation FR/EN, thème persistant, coquille de navigation —
+  voir `docs/02-Architecture/adr/0002-i18n-theme-navigation.md`).
 - **PHASE 3 — Contenu** : en cours.
 - Le contenu affiché (`apps/web`) reste volontairement placeholder
   (`[À COMPLÉTER]`) tant que la PHASE 3 n'alimente pas `content/` — voir

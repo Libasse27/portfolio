@@ -1,0 +1,31 @@
+{
+  "Metadata": {
+    "title": "[TO COMPLETE: Full name] — [TO COMPLETE: Professional title]",
+    "description": "[TO COMPLETE: one-sentence value proposition — MODULE 2]"
+  },
+  "Navigation": {
+    "homeLabel": "Back to home",
+    "contactCta": "Contact me"
+  },
+  "ThemeToggle": {
+    "switchToDark": "Switch to dark mode",
+    "switchToLight": "Switch to light mode"
+  },
+  "LanguageSwitcher": {
+    "label": "Change language",
+    "fr": "Français",
+    "en": "English"
+  },
+  "HomePage": {
+    "heading": "LIBASSE DIA",
+    "tagline": "[TO COMPLETE: value proposition — MODULE 2]",
+    "projectsCta": "View projects"
+  },
+  "ErrorPage": {
+    "heading": "Something went wrong",
+    "retry": "Try again"
+  },
+  "LoadingPage": {
+    "label": "Loading…"
+  }
+}

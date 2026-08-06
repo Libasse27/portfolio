@@ -1,0 +1,31 @@
+{
+  "Metadata": {
+    "title": "[À COMPLÉTER : Nom complet] — [À COMPLÉTER : Titre professionnel]",
+    "description": "[À COMPLÉTER : proposition de valeur en une phrase — MODULE 2]"
+  },
+  "Navigation": {
+    "homeLabel": "Retour à l'accueil",
+    "contactCta": "Me contacter"
+  },
+  "ThemeToggle": {
+    "switchToDark": "Passer en mode sombre",
+    "switchToLight": "Passer en mode clair"
+  },
+  "LanguageSwitcher": {
+    "label": "Changer de langue",
+    "fr": "Français",
+    "en": "English"
+  },
+  "HomePage": {
+    "heading": "LIBASSE DIA",
+    "tagline": "[À COMPLÉTER : proposition de valeur — MODULE 2]",
+    "projectsCta": "Voir les projets"
+  },
+  "ErrorPage": {
+    "heading": "Une erreur est survenue",
+    "retry": "Réessayer"
+  },
+  "LoadingPage": {
+    "label": "Chargement…"
+  }
+}
