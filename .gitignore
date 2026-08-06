@@ -39,3 +39,4 @@ Thumbs.db
 .eslintcache
 .vercel
 next-env.d.ts
+.lighthouseci

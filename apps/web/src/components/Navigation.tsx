@@ -1,24 +1,25 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@portfolio/i18n';
+import { LinkButton } from '@portfolio/ui';
+import { profil } from '@/lib/content';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { ThemeToggle } from './ThemeToggle';
-
-// Lien stylé comme Button (variant primary) : Button rend un <button>,
-// incompatible avec un <a> imbriqué (next-intl Link).
-const ctaClasses =
-  'inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm ' +
-  'font-semibold text-white transition-colors duration-150 hover:opacity-90 ' +
-  'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ' +
-  'focus-visible:outline-primary';
+import { MobileMenu } from './MobileMenu';
 
 /**
- * Coquille de navigation minimale (Phase 2 — ADR 0002) : logo, bascule de
- * langue, bascule de thème, CTA contact. Les liens de section, la
- * condensation au scroll et le menu plein écran mobile arrivent en Phase 4
- * avec les sections réelles.
+ * Coquille de navigation (Phase 2 — ADR 0002) enrichie des liens de section
+ * (Phase 4 — ADR 0003), maintenant que les sections existent réellement.
+ * Toujours pas de condensation au scroll (ADR 0002, hors périmètre).
  */
 export async function Navigation() {
   const t = await getTranslations('Navigation');
+
+  const links = [
+    { href: '#expertise', label: t('expertiseLink') },
+    { href: '#a-propos', label: t('aboutLink') },
+    { href: '#experience', label: t('experienceLink') },
+    { href: '#contact', label: t('contactLink') },
+  ];
 
   return (
     <header className="bg-app-surface/80 border-app-border sticky top-0 z-50 border-b backdrop-blur">
@@ -27,17 +28,30 @@ export async function Navigation() {
         aria-label={t('homeLabel')}
       >
         <Link href="/" className="font-heading text-app-text text-sm font-bold tracking-wide">
-          LIBASSE DIA
+          {profil.identite.nomComplet}
         </Link>
-        <div className="flex items-center gap-4">
+
+        <div className="hidden items-center gap-6 sm:flex">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-app-text-muted hover:text-app-text text-sm font-medium"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+
+        <div className="hidden items-center gap-4 sm:flex">
           <LanguageSwitcher />
           <ThemeToggle />
-          {/* Ancre same-page (pas une route) : <a> natif plutôt que le Link
-              localisé, qui préfixerait la locale sur "#contact". */}
-          <a href="#contact" className={ctaClasses}>
+          <LinkButton href="#contact" variant="primary">
             {t('contactCta')}
-          </a>
+          </LinkButton>
         </div>
+
+        <MobileMenu links={links} contactCta={t('contactCta')} />
       </nav>
     </header>
   );

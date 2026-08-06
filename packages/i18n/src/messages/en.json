@@ -1,11 +1,17 @@
 {
   "Metadata": {
-    "title": "[TO COMPLETE: Full name] — [TO COMPLETE: Professional title]",
-    "description": "[TO COMPLETE: one-sentence value proposition — MODULE 2]"
+    "title": "Libaase Dia — Full-Stack Web Developer · Accounting Technician · IT & Network Technician",
+    "description": "Your business processes, turned into reliable software."
   },
   "Navigation": {
     "homeLabel": "Back to home",
-    "contactCta": "Contact me"
+    "contactCta": "Contact me",
+    "expertiseLink": "Triple expertise",
+    "aboutLink": "About",
+    "experienceLink": "Experience",
+    "contactLink": "Contact",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu"
   },
   "ThemeToggle": {
     "switchToDark": "Switch to dark mode",
@@ -16,10 +22,61 @@
     "fr": "Français",
     "en": "English"
   },
-  "HomePage": {
-    "heading": "LIBASSE DIA",
-    "tagline": "[TO COMPLETE: value proposition — MODULE 2]",
-    "projectsCta": "View projects"
+  "Hero": {
+    "primaryCta": "Contact me",
+    "secondaryCta": "Discover my journey",
+    "polesLabel": "Triple expertise"
+  },
+  "TripleExpertise": {
+    "heading": "Triple expertise",
+    "hint": "Hover or select an intersection to learn more",
+    "intersectionLabel": "View detail: {titre}"
+  },
+  "About": {
+    "heading": "About",
+    "valuesHeading": "Values",
+    "differentiatorsHeading": "What sets me apart",
+    "challengesHeading": "Challenges faced",
+    "achievementsHeading": "Key achievements",
+    "philosophyHeading": "Working philosophy",
+    "ambitionsHeading": "Ambitions",
+    "metricsHeading": "By the numbers"
+  },
+  "Experience": {
+    "heading": "Experience",
+    "filterAll": "All poles",
+    "filterDev": "Development",
+    "filterCompta": "Accounting",
+    "filterInfra": "Infrastructure",
+    "emptyState": "No experience for this pole yet.",
+    "current": "Ongoing"
+  },
+  "Contact": {
+    "heading": "Contact",
+    "intro": "A project, a question? Write to me directly.",
+    "formNameLabel": "Name",
+    "formNamePlaceholder": "Your name",
+    "formEmailLabel": "Email",
+    "formEmailPlaceholder": "you@example.com",
+    "formOrganisationLabel": "Organisation (optional)",
+    "formTypeProjetLabel": "Project type",
+    "formTypeProjetPlaceholder": "e.g. ERP, HIS, business application…",
+    "formBudgetLabel": "Indicative budget (optional)",
+    "formMessageLabel": "Message",
+    "formMessagePlaceholder": "Describe your need…",
+    "submitCta": "Send by email",
+    "errorRequired": "This field is required.",
+    "errorEmail": "Invalid email address.",
+    "directContactHeading": "Direct contact",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "whatsappLabel": "WhatsApp"
+  },
+  "Footer": {
+    "sitemapHeading": "Sitemap",
+    "backToTop": "Back to top",
+    "legalPending": "Legal notice — coming soon",
+    "rightsReserved": "All rights reserved."
   },
   "ErrorPage": {
     "heading": "Something went wrong",

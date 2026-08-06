@@ -1,11 +1,17 @@
 {
   "Metadata": {
-    "title": "[À COMPLÉTER : Nom complet] — [À COMPLÉTER : Titre professionnel]",
-    "description": "[À COMPLÉTER : proposition de valeur en une phrase — MODULE 2]"
+    "title": "Libaase Dia — Développeur Web Full-Stack · Technicien Comptable · Technicien Informatique & Réseau",
+    "description": "Vos process métier, transformés en logiciel fiable."
   },
   "Navigation": {
     "homeLabel": "Retour à l'accueil",
-    "contactCta": "Me contacter"
+    "contactCta": "Me contacter",
+    "expertiseLink": "Triple expertise",
+    "aboutLink": "À propos",
+    "experienceLink": "Expérience",
+    "contactLink": "Contact",
+    "menuOpen": "Ouvrir le menu",
+    "menuClose": "Fermer le menu"
   },
   "ThemeToggle": {
     "switchToDark": "Passer en mode sombre",
@@ -16,10 +22,61 @@
     "fr": "Français",
     "en": "English"
   },
-  "HomePage": {
-    "heading": "LIBASSE DIA",
-    "tagline": "[À COMPLÉTER : proposition de valeur — MODULE 2]",
-    "projectsCta": "Voir les projets"
+  "Hero": {
+    "primaryCta": "Me contacter",
+    "secondaryCta": "Découvrir mon parcours",
+    "polesLabel": "Triple expertise"
+  },
+  "TripleExpertise": {
+    "heading": "Triple expertise",
+    "hint": "Survolez ou sélectionnez une intersection pour en savoir plus",
+    "intersectionLabel": "Voir le détail : {titre}"
+  },
+  "About": {
+    "heading": "À propos",
+    "valuesHeading": "Valeurs",
+    "differentiatorsHeading": "Ce qui fait la différence",
+    "challengesHeading": "Difficultés traversées",
+    "achievementsHeading": "Réussites marquantes",
+    "philosophyHeading": "Philosophie de travail",
+    "ambitionsHeading": "Ambitions",
+    "metricsHeading": "En chiffres"
+  },
+  "Experience": {
+    "heading": "Expérience",
+    "filterAll": "Tous les pôles",
+    "filterDev": "Développement",
+    "filterCompta": "Comptabilité",
+    "filterInfra": "Infrastructure",
+    "emptyState": "Aucune expérience pour ce pôle pour le moment.",
+    "current": "En cours"
+  },
+  "Contact": {
+    "heading": "Contact",
+    "intro": "Un projet, une question ? Écrivez-moi directement.",
+    "formNameLabel": "Nom",
+    "formNamePlaceholder": "Votre nom",
+    "formEmailLabel": "E-mail",
+    "formEmailPlaceholder": "vous@exemple.com",
+    "formOrganisationLabel": "Organisation (optionnel)",
+    "formTypeProjetLabel": "Type de projet",
+    "formTypeProjetPlaceholder": "ex. ERP, SIH, application métier…",
+    "formBudgetLabel": "Budget indicatif (optionnel)",
+    "formMessageLabel": "Message",
+    "formMessagePlaceholder": "Décrivez votre besoin…",
+    "submitCta": "Envoyer par e-mail",
+    "errorRequired": "Ce champ est requis.",
+    "errorEmail": "Adresse e-mail invalide.",
+    "directContactHeading": "Coordonnées directes",
+    "emailLabel": "E-mail",
+    "phoneLabel": "Téléphone",
+    "whatsappLabel": "WhatsApp"
+  },
+  "Footer": {
+    "sitemapHeading": "Plan du site",
+    "backToTop": "Retour en haut",
+    "legalPending": "Mentions légales — à venir",
+    "rightsReserved": "Tous droits réservés."
   },
   "ErrorPage": {
     "heading": "Une erreur est survenue",

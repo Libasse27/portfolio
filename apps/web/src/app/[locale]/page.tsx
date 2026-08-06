@@ -1,20 +1,24 @@
-import { getTranslations } from 'next-intl/server';
-import { Button } from '@portfolio/ui';
+import { Hero } from '@/components/sections/Hero';
+import { TripleExpertise } from '@/components/sections/TripleExpertise';
+import { About } from '@/components/sections/About';
+import { Experience } from '@/components/sections/Experience';
+import { Contact } from '@/components/sections/Contact';
+import { Footer } from '@/components/sections/Footer';
 
 /**
- * Page d'accueil provisoire — le contenu réel (MODULE 2 et 3) sera intégré
- * en PHASE 3 (Contenu), une fois la PHASE 0 (Vision & Cadrage) validée.
+ * Sections dans l'ordre du MODULE 13 (ADR 0003). Projets, Services,
+ * Compétences, Formation, FAQ restent absents tant que leur contenu n'est
+ * pas débloqué — voir docs/07-Content/README.md.
  */
-export default async function HomePage() {
-  const t = await getTranslations('HomePage');
-
+export default function HomePage() {
   return (
-    <main className="p-8">
-      <h1 className="font-heading text-app-text text-3xl font-bold">{t('heading')}</h1>
-      <p className="text-app-text-muted mt-2">{t('tagline')}</p>
-      <Button variant="primary" className="mt-6">
-        {t('projectsCta')}
-      </Button>
-    </main>
+    <>
+      <Hero />
+      <TripleExpertise />
+      <About />
+      <Experience />
+      <Contact />
+      <Footer />
+    </>
   );
 }

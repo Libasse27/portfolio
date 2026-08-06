@@ -1,4 +1,6 @@
 export { Button, type ButtonProps, type ButtonVariant } from './components/Button';
+export { LinkButton, type LinkButtonProps } from './components/LinkButton';
+export { Badge, type BadgeProps, type BadgeVariant } from './components/Badge';
 export {
   spacing,
   radius,

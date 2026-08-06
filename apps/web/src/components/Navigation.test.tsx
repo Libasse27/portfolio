@@ -1,8 +1,9 @@
 import type { ReactNode } from 'react';
 import { describe, expect, it, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { NextIntlClientProvider } from 'next-intl';
 import messagesFr from '@portfolio/i18n/src/messages/fr.json';
+import { profil } from '@/lib/content';
 import { Navigation } from './Navigation';
 
 vi.mock('next-intl/server', () => ({
@@ -33,15 +34,23 @@ vi.mock('@portfolio/i18n', () => ({
   ),
 }));
 
-describe('Navigation', () => {
-  it('affiche le nom, le sélecteur de langue, la bascule de thème et le CTA contact', async () => {
+function renderNavigation() {
+  return Navigation().then((element) =>
     render(
       <NextIntlClientProvider locale="fr" messages={messagesFr}>
-        {await Navigation()}
+        {element}
       </NextIntlClientProvider>,
-    );
+    ),
+  );
+}
 
-    expect(screen.getByText('LIBASSE DIA')).toBeInTheDocument();
+describe('Navigation', () => {
+  it('affiche le nom, le sélecteur de langue, la bascule de thème et le CTA contact', async () => {
+    await renderNavigation();
+
+    expect(
+      screen.getAllByText(profil.identite.nomComplet, { exact: false }).length,
+    ).toBeGreaterThan(0);
     expect(screen.getByRole('link', { name: messagesFr.Navigation.contactCta })).toHaveAttribute(
       'href',
       '#contact',
@@ -51,6 +60,36 @@ describe('Navigation', () => {
     ).toBeInTheDocument();
     expect(
       screen.getByRole('button', { name: messagesFr.ThemeToggle.switchToLight }),
+    ).toBeInTheDocument();
+  });
+
+  it('affiche les liens vers les sections existantes', async () => {
+    await renderNavigation();
+
+    expect(screen.getByRole('link', { name: messagesFr.Navigation.expertiseLink })).toHaveAttribute(
+      'href',
+      '#expertise',
+    );
+    expect(screen.getByRole('link', { name: messagesFr.Navigation.aboutLink })).toHaveAttribute(
+      'href',
+      '#a-propos',
+    );
+    expect(
+      screen.getByRole('link', { name: messagesFr.Navigation.experienceLink }),
+    ).toHaveAttribute('href', '#experience');
+  });
+
+  it('ouvre le menu mobile plein écran au clic sur le bouton menu', async () => {
+    await renderNavigation();
+
+    expect(
+      screen.queryByRole('button', { name: messagesFr.Navigation.menuClose }),
+    ).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: messagesFr.Navigation.menuOpen }));
+
+    expect(
+      screen.getByRole('button', { name: messagesFr.Navigation.menuClose }),
     ).toBeInTheDocument();
   });
 });
