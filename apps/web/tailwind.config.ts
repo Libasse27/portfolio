@@ -18,6 +18,9 @@ const config: Config = {
         'app-text': 'var(--color-text)',
         'app-text-muted': 'var(--color-text-muted)',
         primary: 'var(--color-primary)',
+        // Remplissage plein (boutons, filtres actifs) : ADR 0005, contraste
+        // texte blanc / fond suffisant dans les deux thèmes.
+        'primary-fill': 'var(--color-primary-fill)',
         'pole-dev': 'var(--color-primary)',
         'pole-compta': 'var(--color-pole-compta)',
         'pole-infra': 'var(--color-pole-infra)',

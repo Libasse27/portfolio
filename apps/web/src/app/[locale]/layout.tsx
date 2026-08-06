@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import { LazyMotion, domAnimation, MotionConfig } from 'framer-motion';
 import { routing, messages, type AppLocale } from '@portfolio/i18n';
 import { Navigation } from '@/components/Navigation';
+import { SkipLink } from '@/components/SkipLink';
 import { ThemeScript } from '@/components/ThemeScript';
 import { StructuredData } from '@/components/StructuredData';
 import { profil } from '@/lib/content';
@@ -116,8 +117,9 @@ export default async function RootLayout({
               composants complets (ADR 0004, budget JS MODULE 14). */}
           <LazyMotion features={domAnimation} strict>
             <MotionConfig reducedMotion="user">
+              <SkipLink />
               <Navigation />
-              {children}
+              <main id="main-content">{children}</main>
             </MotionConfig>
           </LazyMotion>
         </NextIntlClientProvider>

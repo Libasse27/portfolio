@@ -11,7 +11,8 @@
     "experienceLink": "Experience",
     "contactLink": "Contact",
     "menuOpen": "Open menu",
-    "menuClose": "Close menu"
+    "menuClose": "Close menu",
+    "skipToContent": "Skip to main content"
   },
   "ThemeToggle": {
     "switchToDark": "Switch to dark mode",

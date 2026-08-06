@@ -34,8 +34,10 @@ export function ExperienceFilter({ experiences }: { experiences: Experience[] })
             aria-pressed={filter === pole}
             className={[
               'rounded-full border px-4 py-1.5 text-sm font-medium transition-colors',
+              // bg-primary-fill (pas bg-primary) : contraste texte blanc
+              // suffisant en thème sombre — ADR 0005.
               filter === pole
-                ? 'border-primary bg-primary text-white'
+                ? 'border-primary-fill bg-primary-fill text-white'
                 : 'border-app-border text-app-text-muted hover:border-primary hover:text-app-text',
             ].join(' ')}
           >

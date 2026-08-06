@@ -18,6 +18,12 @@
   --color-text-muted: #9facb6;
 
   --color-primary: #1496b8; /* aussi l'accent du pôle Dev */
+  /* Remplissage plein (boutons, filtres actifs) : plus foncé que
+     --color-primary en sombre pour que le texte blanc dessus atteigne
+     4.5:1 (WCAG AA) — voir ADR 0005. --color-primary seul (5.27:1 sur le
+     fond) reste correct pour du texte/accent, pas pour un fond plein avec
+     texte blanc (3.45:1, insuffisant). */
+  --color-primary-fill: #127891;
   --color-pole-compta: #d48a1e;
   --color-pole-infra: #7b7ff5;
 
@@ -42,6 +48,9 @@
     --color-text-muted: #5b6670;
 
     --color-primary: #0c5d74;
+    /* Déjà 7.41:1 avec du texte blanc : pas besoin d'une teinte distincte
+       en clair (contrairement au sombre, voir ADR 0005). */
+    --color-primary-fill: #0c5d74;
     --color-pole-compta: #92430a;
     --color-pole-infra: #4f46e5;
 
@@ -60,6 +69,7 @@
   --color-text: #edf1f4;
   --color-text-muted: #9facb6;
   --color-primary: #1496b8;
+  --color-primary-fill: #127891;
   --color-pole-compta: #d48a1e;
   --color-pole-infra: #7b7ff5;
 }
@@ -71,6 +81,7 @@
   --color-text: #12161a;
   --color-text-muted: #5b6670;
   --color-primary: #0c5d74;
+  --color-primary-fill: #0c5d74;
   --color-pole-compta: #92430a;
   --color-pole-infra: #4f46e5;
 }

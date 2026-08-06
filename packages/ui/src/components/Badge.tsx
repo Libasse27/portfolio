@@ -9,11 +9,15 @@ export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
 
 const base = 'inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold';
 
-/** Un badge par pôle (MODULE 4), plus un variant neutre (ex. disponibilité). */
+/**
+ * Un badge par pôle (MODULE 4), plus un variant neutre (ex. disponibilité).
+ * Teinte à /10 (pas /15) : à /15, dev et infra tombaient à 4.38:1/4.40:1
+ * en thème sombre, sous le seuil WCAG AA de 4.5:1 — ADR 0005.
+ */
 const variantClasses: Record<BadgeVariant, string> = {
-  dev: 'bg-pole-dev/15 text-pole-dev',
-  compta: 'bg-pole-compta/15 text-pole-compta',
-  infra: 'bg-pole-infra/15 text-pole-infra',
+  dev: 'bg-pole-dev/10 text-pole-dev',
+  compta: 'bg-pole-compta/10 text-pole-compta',
+  infra: 'bg-pole-infra/10 text-pole-infra',
   neutral: 'border border-app-border bg-app-surface text-app-text-muted',
 };
 

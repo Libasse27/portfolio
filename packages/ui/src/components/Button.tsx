@@ -14,9 +14,14 @@ export const buttonBaseClasses =
   'focus-visible:outline-offset-2 focus-visible:outline-primary disabled:opacity-50 ' +
   'disabled:pointer-events-none';
 
-/** Couleur primaire = accent du pôle Dev (MODULE 4 : le développement est mis en avant en premier). */
+/**
+ * Couleur primaire = accent du pôle Dev (MODULE 4 : le développement est
+ * mis en avant en premier). Le variant `primary` utilise `bg-primary-fill`
+ * (pas `bg-primary`) : `--color-primary` seul n'offre que 3.45:1 avec du
+ * texte blanc en thème sombre, sous le seuil WCAG AA (4.5:1) — ADR 0005.
+ */
 export const buttonVariantClasses: Record<ButtonVariant, string> = {
-  primary: 'bg-primary text-white hover:opacity-90',
+  primary: 'bg-primary-fill text-white hover:opacity-90',
   secondary: 'border border-app-border bg-app-surface text-app-text hover:border-primary',
   ghost: 'bg-transparent text-primary hover:bg-app-surface',
 };
