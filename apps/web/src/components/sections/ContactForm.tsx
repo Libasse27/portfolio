@@ -3,7 +3,7 @@
 import { useState, type ChangeEvent, type FormEvent } from 'react';
 import { useTranslations } from 'next-intl';
 import { Button } from '@portfolio/ui';
-import { contactFormSchema, type ContactForm as ContactFormData } from '@portfolio/validations';
+import type { ContactForm as ContactFormData } from '@portfolio/validations';
 
 type FieldErrors = Partial<Record<'nom' | 'email' | 'typeProjet' | 'message', string>>;
 
@@ -48,8 +48,11 @@ export function ContactForm({ recipientEmail }: { recipientEmail: string }) {
     };
   }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    // Import différé (zod, ~11 kB gzip) : seule la soumission en a besoin,
+    // pas le chargement initial de la page — budget JS MODULE 14, ADR 0004.
+    const { contactFormSchema } = await import('@portfolio/validations');
     const result = contactFormSchema.safeParse(values);
 
     if (!result.success) {

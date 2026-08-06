@@ -26,12 +26,14 @@ Piloté par le master prompt : [`docs/00-MasterPrompt/MasterPrompt.md`](./docs/0
   débloqué — voir `docs/02-Architecture/adr/0003-sections-phase4-passe1.md`.
 - **PHASE 5 — SEO & Performance** : en cours — métadonnées réelles, Open
   Graph + image dynamique, JSON-LD Person/WebSite/ProfessionalService,
-  sitemap/robots, budget JS réduit (182 kB → 153 kB), Lighthouse CI en
-  place (seuils conservateurs, à resserrer après la première mesure CI
-  réelle) — voir `docs/06-SEO/README.md` et
-  `docs/02-Architecture/adr/0004-seo-performance-phase5-passe1.md`.
-  `SITE_URL` doit être positionné au vrai domaine avant mise en
-  production (`apps/web/.env.example`) — non encore acquis.
+  sitemap/robots, budget JS réduit (182 kB → 153 kB → **139 kB**, sous le
+  budget de 150 kB), Lighthouse CI en place (seuils conservateurs, à
+  resserrer après la première mesure CI réelle) — voir
+  `docs/06-SEO/README.md` et `docs/02-Architecture/adr/
+0004-seo-performance-phase5-passe1.md` /
+  `0006-budget-js-phase5-passe2.md`. `SITE_URL` doit être positionné au
+  vrai domaine avant mise en production (`apps/web/.env.example`) — non
+  encore acquis.
 
 ## Prérequis
 

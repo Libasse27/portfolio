@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { NextIntlClientProvider } from 'next-intl';
 import messagesFr from '@portfolio/i18n/src/messages/fr.json';
 import { ContactForm, buildMailtoUrl } from './ContactForm';
@@ -36,14 +36,16 @@ function renderForm() {
 }
 
 describe('ContactForm', () => {
-  it('affiche des erreurs de validation sur un formulaire vide', () => {
+  // handleSubmit importe le schéma zod à la demande (budget JS, ADR 0004) :
+  // le clic déclenche une résolution asynchrone, à attendre via findBy/waitFor.
+  it('affiche des erreurs de validation sur un formulaire vide', async () => {
     renderForm();
     fireEvent.click(screen.getByRole('button', { name: messagesFr.Contact.submitCta }));
 
-    expect(screen.getAllByText(messagesFr.Contact.errorRequired).length).toBeGreaterThan(0);
+    expect(await screen.findAllByText(messagesFr.Contact.errorRequired)).not.toHaveLength(0);
   });
 
-  it('ignore silencieusement une soumission avec le honeypot rempli', () => {
+  it('ignore silencieusement une soumission avec le honeypot rempli', async () => {
     renderForm();
     fireEvent.change(screen.getByLabelText(messagesFr.Contact.formNameLabel), {
       target: { value: 'Aïssatou Fall' },
@@ -61,7 +63,9 @@ describe('ContactForm', () => {
 
     fireEvent.click(screen.getByRole('button', { name: messagesFr.Contact.submitCta }));
 
-    expect(screen.queryByText(messagesFr.Contact.errorRequired)).not.toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.queryByText(messagesFr.Contact.errorRequired)).not.toBeInTheDocument();
+    });
   });
 
   describe('soumission valide', () => {
@@ -77,7 +81,7 @@ describe('ContactForm', () => {
       Object.defineProperty(window, 'location', { writable: true, value: originalLocation });
     });
 
-    it('construit et déclenche le lien mailto pour un formulaire valide', () => {
+    it('construit et déclenche le lien mailto pour un formulaire valide', async () => {
       renderForm();
       fireEvent.change(screen.getByLabelText(messagesFr.Contact.formNameLabel), {
         target: { value: 'Aïssatou Fall' },
@@ -94,7 +98,9 @@ describe('ContactForm', () => {
 
       fireEvent.click(screen.getByRole('button', { name: messagesFr.Contact.submitCta }));
 
-      expect(window.location.href).toContain(`mailto:${recipientEmail}`);
+      await waitFor(() => {
+        expect(window.location.href).toContain(`mailto:${recipientEmail}`);
+      });
     });
   });
 });

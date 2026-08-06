@@ -1,7 +1,8 @@
 # État SEO & Performance — PHASE 5
 
 Décisions et raisons détaillées : `docs/02-Architecture/adr/
-0004-seo-performance-phase5-passe1.md`.
+0004-seo-performance-phase5-passe1.md` et `docs/02-Architecture/adr/
+0006-budget-js-phase5-passe2.md`.
 
 ## Fait (passe 1)
 
@@ -16,6 +17,14 @@ Décisions et raisons détaillées : `docs/02-Architecture/adr/
   surveiller.
 - Lighthouse CI en place (`apps/web/lighthouserc.js`), seuils conservateurs
   (0.8) en attendant la première mesure réelle sur le runner CI.
+
+## Fait (passe 2)
+
+- Budget JS : `@next/bundle-analyzer` (`ANALYZE=true pnpm build`) a
+  identifié `zod` (~11 kB gzip), embarqué via `contactFormSchema` importé
+  au niveau module dans `ContactForm`, comme cause du dépassement. Import
+  différé (`await import('@portfolio/validations')` au submit) : First
+  Load JS de `/[locale]` **153 kB → 139 kB**, sous le budget de 150 kB.
 
 ## Bloqué — contenu manquant
 
