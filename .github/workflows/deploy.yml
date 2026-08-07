@@ -1,0 +1,56 @@
+name: Deploy
+
+# Se déclenche une fois le workflow CI terminé sur master (pas en push direct :
+# on ne déploie que ce qui a déjà passé lint/types/tests/build/Lighthouse).
+#
+# Chaque étape est gardée par `env.VERCEL_TOKEN != ''` plutôt qu'un `if` de
+# job sur `secrets` : le contexte `secrets` n'est pas disponible dans les
+# conditions `if` (job ou étape), seul `env` l'est au niveau d'une étape —
+# https://docs.github.com/actions/learn-github-actions/contexts#context-availability.
+# Reste donc sans effet (étapes ignorées, job vert) tant que les secrets
+# Vercel ne sont pas renseignés — aucun identifiant Vercel n'existe à ce
+# jour, docs/14-Deployment/README.md documente comment les créer et les poser.
+on:
+  workflow_run:
+    workflows: ['CI']
+    types: [completed]
+    branches: [master]
+
+jobs:
+  deploy:
+    name: Déployer sur Vercel (production)
+    runs-on: ubuntu-latest
+    if: github.event.workflow_run.conclusion == 'success'
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+        if: env.VERCEL_TOKEN != ''
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - uses: actions/setup-node@v4
+        if: env.VERCEL_TOKEN != ''
+        with:
+          node-version: 20
+
+      - name: Installer le CLI Vercel
+        if: env.VERCEL_TOKEN != ''
+        run: npm install --global vercel@latest
+
+      - name: Récupérer la configuration d'environnement Vercel
+        if: env.VERCEL_TOKEN != ''
+        run: vercel pull --yes --environment=production --token=$VERCEL_TOKEN
+        working-directory: apps/web
+
+      - name: Builder pour Vercel
+        if: env.VERCEL_TOKEN != ''
+        run: vercel build --prod --token=$VERCEL_TOKEN
+        working-directory: apps/web
+
+      - name: Déployer l'artefact prébuildé
+        if: env.VERCEL_TOKEN != ''
+        run: vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
+        working-directory: apps/web

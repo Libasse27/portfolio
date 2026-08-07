@@ -1,0 +1,48 @@
+# Exclu du contexte de build Docker (docker/development, docker/production).
+# Miroir de .gitignore, plus le nécessaire propre à Docker.
+
+# Dependencies
+node_modules/
+**/node_modules/
+.pnpm-store/
+
+# Build outputs
+.next/
+**/.next/
+dist/
+build/
+out/
+.turbo/
+**/.turbo/
+
+# Env (jamais dans l'image — injectés au runtime par la plateforme d'hébergement)
+.env
+.env.local
+.env.*.local
+
+# Tests & coverage
+coverage/
+playwright-report/
+test-results/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Éditeur / VCS
+.git/
+.github/
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Divers
+*.tsbuildinfo
+.eslintcache
+.vercel
+.lighthouseci
+docs/

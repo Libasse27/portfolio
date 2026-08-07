@@ -1,0 +1,27 @@
+# Voie auto-hébergée pour apps/web (MODULE 16.1, PHASE 7) — alternative à
+# Vercel, la cible par défaut documentée dans docs/14-Deployment/README.md.
+# Lancer depuis la racine du monorepo :
+#   docker compose -f docker/compose/docker-compose.prod.yml up --build -d
+services:
+  web:
+    build:
+      context: ../..
+      dockerfile: docker/production/Dockerfile
+    environment:
+      NODE_ENV: production
+      # SITE_URL réel obligatoire (voir apps/web/.env.example) : le domaine
+      # n'est pas encore acquis, aucune valeur de production à mettre ici.
+      SITE_URL: ${SITE_URL:-http://localhost:3000}
+    restart: unless-stopped
+    expose:
+      - '3000'
+
+  nginx:
+    image: nginx:1.27-alpine
+    depends_on:
+      - web
+    ports:
+      - '80:80'
+    volumes:
+      - ../nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    restart: unless-stopped
