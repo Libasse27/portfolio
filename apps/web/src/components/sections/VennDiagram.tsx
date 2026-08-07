@@ -112,9 +112,13 @@ export function VennDiagram({
               className={[
                 'absolute h-9 w-9 -translate-x-1/2 -translate-y-1/2 rounded-full border-2',
                 'focus-visible:ring-primary outline-none transition-colors focus-visible:ring-2 sm:h-11 sm:w-11',
+                // border-app-text-muted/75 (pas /40) : sous ce seuil, le contour du
+                // bouton inactif tombe sous 3:1 (WCAG 1.4.11, contraste non-textuel
+                // des composants d'interface) — 2.28:1 en sombre, 1.77:1 en clair à
+                // /40 — ADR 0005 passe 2.
                 isActive
                   ? 'border-app-text bg-app-surface/70'
-                  : 'border-app-text-muted/40 hover:border-app-text-muted bg-transparent',
+                  : 'border-app-text-muted/75 hover:border-app-text-muted bg-transparent',
               ].join(' ')}
             />
           );

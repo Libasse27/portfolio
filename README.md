@@ -34,6 +34,16 @@ Piloté par le master prompt : [`docs/00-MasterPrompt/MasterPrompt.md`](./docs/0
   `0006-budget-js-phase5-passe2.md`. `SITE_URL` doit être positionné au
   vrai domaine avant mise en production (`apps/web/.env.example`) — non
   encore acquis.
+- **PHASE 6 — Accessibilité** : en cours — contraste WCAG AA des fonds
+  pleins et lien d'évitement (passe 1), puis contour des boutons
+  d'intersection du diagramme de Venn remonté au seuil non-textuel 3:1 et
+  menu mobile traité en boîte de dialogue modale (piège de focus, Échap,
+  restitution du focus) en passe 2 — voir `docs/02-Architecture/adr/
+0005-accessibilite-phase6-passe1.md` et `0007-accessibilite-phase6-passe2.md`.
+  Restent hors périmètre : token `--color-border` sous le seuil non-textuel
+  (revue visuelle dédiée nécessaire) et audit Lighthouse
+  Accessibilité/axe-core automatisé (bloqué par le bug `chrome-launcher`
+  sous Windows, en attente de Playwright).
 
 ## Prérequis
 
