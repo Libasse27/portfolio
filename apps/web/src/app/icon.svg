@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!--
+    Icône dérivée du VennDiagram (src/components/sections/VennDiagram.tsx) :
+    même géométrie (triangle équilatéral, 3 cercles) à l'échelle du favicon,
+    couleurs Teranga Slate sombre (globals.css) codées en dur — un SVG de
+    favicon n'a pas accès aux variables CSS de la page qui le charge.
+  -->
+  <rect width="32" height="32" fill="#12161a" />
+  <g opacity="0.68">
+    <circle cx="16.7" cy="9.6" r="9.75" fill="#1496b8" />
+    <circle cx="11.6" cy="19.4" r="9.75" fill="#d48a1e" />
+    <circle cx="21.8" cy="19.4" r="9.75" fill="#7b7ff5" />
+  </g>
+</svg>
