@@ -83,14 +83,16 @@ et `docker compose up -d` sans rebuild pour revenir dessus instantanément.
 
 ## État
 
-| Élément                              | Statut                                            |
-| ------------------------------------ | ------------------------------------------------- |
-| Dockerfiles dev/prod, compose, nginx | Fait — voir `docker/`                             |
-| `next.config.ts` : headers sécurité  | Fait — voir ADR 0008                              |
-| Workflow de déploiement Vercel       | Scaffoldé, inactif (secrets absents)              |
-| Nom de domaine                       | Choisi (`libaasedia.dev`, 2026-08-08), pas acheté |
-| Compte Vercel + domaine              | Non acquis                                        |
-| Déploiement testé de bout en bout    | Non — bloqué par les deux lignes précédentes      |
+| Élément                              | Statut                                                                                                                                             |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Dockerfiles dev/prod, compose, nginx | Fait — voir `docker/`                                                                                                                              |
+| `next.config.ts` : headers sécurité  | Fait — voir ADR 0008                                                                                                                               |
+| Workflow de déploiement Vercel       | Scaffoldé, inactif (secrets absents)                                                                                                               |
+| Nom de domaine                       | Choisi (`libaasedia.dev`, 2026-08-08), pas acheté                                                                                                  |
+| Compte Vercel                        | Créé le 2026-08-08 (`libdevprod@gmail.com`, via GitHub)                                                                                            |
+| Projet Vercel lié au dépôt           | Confirmé — déployé sur `portfolio-web-sh9u.vercel.app` (URL de preview par défaut, 2026-08-08)                                                     |
+| Secrets GitHub (token/org/project)   | Non confirmés — à vérifier avant de compter sur `deploy.yml`                                                                                       |
+| Déploiement testé de bout en bout    | Site rendu correctement via le domaine `.vercel.app` par défaut ; `SITE_URL`/domaine final restent à basculer sur `libaasedia.dev` une fois acheté |
 
 Prochaine étape pour débloquer :
 
