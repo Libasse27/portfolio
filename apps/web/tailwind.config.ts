@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import typography from '@tailwindcss/typography';
 
 /**
  * Thème étendu en PHASE 1 — Design System. Les couleurs pointent vers les
@@ -41,9 +42,35 @@ const config: Config = {
         4: 'var(--shadow-4)',
         5: 'var(--shadow-5)',
       },
+      // Typographie des articles MDX (Phase 8, ADR 0009) : pointe vers les
+      // mêmes variables CSS que le reste du thème plutôt que la palette
+      // grise par défaut du plugin, pour rester cohérent en clair/sombre.
+      typography: {
+        DEFAULT: {
+          css: {
+            '--tw-prose-body': 'var(--color-text)',
+            '--tw-prose-headings': 'var(--color-text)',
+            '--tw-prose-links': 'var(--color-primary)',
+            '--tw-prose-bold': 'var(--color-text)',
+            '--tw-prose-bullets': 'var(--color-text-muted)',
+            '--tw-prose-hr': 'var(--color-border)',
+            '--tw-prose-quotes': 'var(--color-text-muted)',
+            '--tw-prose-quote-borders': 'var(--color-border)',
+            '--tw-prose-captions': 'var(--color-text-muted)',
+            '--tw-prose-code': 'var(--color-text)',
+            '--tw-prose-pre-bg': 'var(--color-surface)',
+            '--tw-prose-pre-border': 'var(--color-border)',
+            maxWidth: 'none',
+            code: { fontWeight: '400' },
+            'code::before': { content: 'none' },
+            'code::after': { content: 'none' },
+            pre: { border: '1px solid var(--tw-prose-pre-border)' },
+          },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [typography],
 };
 
 export default config;

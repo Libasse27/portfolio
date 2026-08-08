@@ -90,3 +90,17 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
 }
+
+/*
+ * Coloration syntaxique à double thème (rehype-pretty-code / Shiki, ADR
+ * 0009 décision 5). Shiki pose deux variables CSS par token
+ * (--shiki-light/--shiki-dark) et une couleur par défaut (claire) inline ;
+ * on bascule sur --shiki-dark via l'attribut data-theme déjà utilisé pour
+ * tout le reste du thème (ADR 0002), pas via prefers-color-scheme.
+ */
+:root[data-theme='dark'] .mdx-content code[data-theme] span {
+  color: var(--shiki-dark);
+}
+:root[data-theme='dark'] .mdx-content pre[data-theme] {
+  background-color: var(--shiki-dark-bg);
+}

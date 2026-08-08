@@ -73,6 +73,19 @@
     "phoneLabel": "Phone",
     "whatsappLabel": "WhatsApp"
   },
+  "Blog": {
+    "heading": "Blog",
+    "metaDescription": "Technical notes on full-stack development, SYSCOHADA accounting, and network infrastructure.",
+    "intro": "Technical write-ups on development, SYSCOHADA accounting, and network infrastructure.",
+    "filterAll": "All themes",
+    "filterDev": "Development",
+    "filterCompta": "Accounting",
+    "filterInfra": "Infrastructure",
+    "emptyState": "No article published yet.",
+    "readingTime": "{minutes, plural, one {# minute read} other {# minutes read}}",
+    "tocHeading": "Contents",
+    "relatedHeading": "Related articles"
+  },
   "Footer": {
     "sitemapHeading": "Sitemap",
     "backToTop": "Back to top",

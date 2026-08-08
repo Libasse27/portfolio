@@ -11,6 +11,7 @@ import { ThemeScript } from '@/components/ThemeScript';
 import { StructuredData } from '@/components/StructuredData';
 import { profil } from '@/lib/content';
 import { env } from '@/lib/env';
+import { localePath } from '@/lib/localePath';
 import '../globals.css';
 
 // Direction typographique validée en Phase 1 : Unbounded (titres) + Public Sans
@@ -38,10 +39,6 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-function localePath(locale: string) {
-  return locale === routing.defaultLocale ? '/' : `/${locale}`;
-}
-
 export async function generateMetadata({
   params,
 }: {
@@ -62,6 +59,9 @@ export async function generateMetadata({
       languages: Object.fromEntries(
         routing.locales.map((loc) => [loc, `${env.SITE_URL}${localePath(loc)}`]),
       ),
+      // Auto-découverte du flux RSS (MODULE 14) : un seul flux, non préfixé
+      // par locale (ADR 0009, décision 9), posé sur chaque page.
+      types: { 'application/rss+xml': `${env.SITE_URL}/rss.xml` },
     },
     openGraph: {
       title,
