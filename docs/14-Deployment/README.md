@@ -12,9 +12,12 @@ middleware déjà utilisés par `apps/web`).
 
 ### Prérequis (non acquis à ce jour)
 
-- Nom de domaine (`SITE_URL` reste sur sa valeur par défaut
-  `http://localhost:3000`, voir `apps/web/.env.example` — **jamais**
-  déployer tel quel en production, cf. commentaire du fichier).
+- Nom de domaine — **choisi le 2026-08-08 : `libaasedia.dev`, achat non
+  encore effectué** (voir docs/01-Business/PersonalBrand.md). `SITE_URL`
+  reste sur sa valeur par défaut `http://localhost:3000`, voir
+  `apps/web/.env.example` — **jamais** déployer tel quel en production, cf.
+  commentaire du fichier ; à basculer sur `https://libaasedia.dev` une fois
+  le domaine acheté et posé sur Vercel.
 - Compte Vercel, projet lié au dépôt GitHub.
 - Trois secrets GitHub (Settings → Secrets and variables → Actions) :
   `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`.
@@ -80,14 +83,24 @@ et `docker compose up -d` sans rebuild pour revenir dessus instantanément.
 
 ## État
 
-| Élément                              | Statut                               |
-| ------------------------------------ | ------------------------------------ |
-| Dockerfiles dev/prod, compose, nginx | Fait — voir `docker/`                |
-| `next.config.ts` : headers sécurité  | Fait — voir ADR 0008                 |
-| Workflow de déploiement Vercel       | Scaffoldé, inactif (secrets absents) |
-| Compte Vercel + domaine              | Non acquis                           |
-| Déploiement testé de bout en bout    | Non — bloqué par la ligne précédente |
+| Élément                              | Statut                                            |
+| ------------------------------------ | ------------------------------------------------- |
+| Dockerfiles dev/prod, compose, nginx | Fait — voir `docker/`                             |
+| `next.config.ts` : headers sécurité  | Fait — voir ADR 0008                              |
+| Workflow de déploiement Vercel       | Scaffoldé, inactif (secrets absents)              |
+| Nom de domaine                       | Choisi (`libaasedia.dev`, 2026-08-08), pas acheté |
+| Compte Vercel + domaine              | Non acquis                                        |
+| Déploiement testé de bout en bout    | Non — bloqué par les deux lignes précédentes      |
 
-Prochaine étape pour débloquer : acquérir le domaine (voir
-`docs/01-Business/PersonalBrand.md`), créer le compte Vercel, poser les
-trois secrets GitHub, positionner `SITE_URL` réel sur Vercel.
+Prochaine étape pour débloquer :
+
+1. Vérifier la disponibilité de `libaasedia.dev` et l'acheter (registrar au
+   choix — Vercel propose l'achat de domaine directement intégré au
+   projet, ce qui simplifie la configuration DNS).
+2. Créer le compte Vercel, lier le dépôt GitHub, exécuter `vercel link`
+   (voir commandes ci-dessus) pour obtenir `orgId`/`projectId`.
+3. Poser les trois secrets GitHub (`VERCEL_TOKEN`, `VERCEL_ORG_ID`,
+   `VERCEL_PROJECT_ID`) et la variable d'environnement `SITE_URL=
+https://libaasedia.dev` sur le projet Vercel (Production).
+4. Relancer `deploy.yml` (ou laisser le prochain merge sur `master` le
+   déclencher) pour valider le déploiement de bout en bout.

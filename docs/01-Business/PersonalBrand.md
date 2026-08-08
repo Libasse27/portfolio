@@ -17,7 +17,7 @@
 | Email                       | libdevprod@gmail.com                                                                                                            |
 | GitHub                      | github.com/Libasse27                                                                                                            |
 | LinkedIn                    | linkedin.com/in/libasse-dia-1a30b178                                                                                            |
-| Nom de domaine              | Pas encore acquis — à choisir et enregistrer au lancement du portfolio                                                          |
+| Nom de domaine              | `libaasedia.dev` — choisi le 2026-08-08, **achat non encore effectué** (voir docs/14-Deployment/README.md)                      |
 | Forme légale / NINEA / RCCM | Non formalisé — prestataire indépendant à ce jour ; structure légale prévue à la commercialisation des produits SaaS (SIH, ERP) |
 | Slogan                      | « Vos process métier, transformés en logiciel fiable »                                                                          |
 
