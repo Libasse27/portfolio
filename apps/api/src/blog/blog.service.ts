@@ -1,6 +1,6 @@
 import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
-import type { CreateBlogPostInput, UpdateBlogPostInput } from './blog.schemas';
+import type { CreateBlogPostInput, UpdateBlogPostInput } from '@portfolio/validations';
 import { slugify } from './slugify';
 
 @Injectable()

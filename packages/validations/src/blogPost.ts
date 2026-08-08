@@ -23,3 +23,20 @@ export const blogPostFrontmatterSchema = z.object({
 });
 
 export type BlogPostFrontmatter = z.infer<typeof blogPostFrontmatterSchema>;
+
+/**
+ * Frontmatter + corps Markdown/MDX : schéma de création/mise à jour côté
+ * API (apps/api) ET admin (apps/admin), pour que les deux ne valident
+ * jamais un article différemment (ADR 0010, décision 5 ; ADR 0011).
+ * `slug` n'est pas un champ d'entrée : dérivé du titre à la création par
+ * apps/api (même principe que le loader fichier, décision 4 ci-dessus
+ * appliquée à un titre plutôt qu'à un nom de fichier).
+ */
+export const createBlogPostSchema = blogPostFrontmatterSchema.extend({
+  corps: z.string().min(1),
+});
+
+export const updateBlogPostSchema = createBlogPostSchema.partial();
+
+export type CreateBlogPostInput = z.infer<typeof createBlogPostSchema>;
+export type UpdateBlogPostInput = z.infer<typeof updateBlogPostSchema>;

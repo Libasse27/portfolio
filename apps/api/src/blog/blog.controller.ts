@@ -9,15 +9,15 @@ import {
   UseGuards,
   UsePipes,
 } from '@nestjs/common';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { ZodValidationPipe } from '../common/zod-validation.pipe';
-import { BlogService } from './blog.service';
 import {
   createBlogPostSchema,
   updateBlogPostSchema,
   type CreateBlogPostInput,
   type UpdateBlogPostInput,
-} from './blog.schemas';
+} from '@portfolio/validations';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { ZodValidationPipe } from '../common/zod-validation.pipe';
+import { BlogService } from './blog.service';
 
 @Controller('blog')
 export class BlogController {

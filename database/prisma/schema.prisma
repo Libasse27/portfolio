@@ -38,3 +38,14 @@ enum Theme {
   compta
   infra
 }
+
+// Modèle, pas donnée : aucun compte inséré (ni seed, ni migration exécutée
+// — voir l'en-tête de ce fichier). Le premier compte réel sera créé à la
+// main contre une base réelle, jamais par un endpoint d'inscription
+// public (ADR 0011, décision 2).
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}

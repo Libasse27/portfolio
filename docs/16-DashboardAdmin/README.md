@@ -1,29 +1,30 @@
-# Tableau de bord admin — PHASE 9 (passe 1)
+# Tableau de bord admin — PHASE 9 (passes 1 et 2)
 
-`apps/api` (NestJS) posé, `apps/admin` reporté à la passe 2 — voir ADR 0010. Une seule entité gérée en base cette passe : les articles de blog
+`apps/api` (NestJS, passe 1, ADR 0010) et `apps/admin` (Next.js, passe 2,
+ADR 0011) posés. Une seule entité gérée en base : les articles de blog
 (`BlogPost`). Comme pour les Phases 7 et 8, aucun compte/identifiant réel
 n'est inventé (règle 0.2.2) : la mécanique est vérifiée par ses tests, pas
 par une base de données réelle.
 
 ## Fait
 
-| Élément                                            | Fichier(s)                                                                        |
-| -------------------------------------------------- | --------------------------------------------------------------------------------- |
-| Schéma Prisma (`BlogPost`, miroir du frontmatter)  | `database/prisma/schema.prisma`                                                   |
-| API NestJS (santé, auth JWT scaffoldée, CRUD blog) | `apps/api/src/`                                                                   |
-| Validation par les schémas Zod partagés            | `apps/api/src/blog/blog.schemas.ts`, `apps/api/src/common/zod-validation.pipe.ts` |
-| Tests unitaires (Prisma mocké, sans base réelle)   | `apps/api/src/**/*.spec.ts`                                                       |
+| Élément                                                                  | Fichier(s)                                                                           |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| Schéma Prisma (`BlogPost`, `AdminUser`)                                  | `database/prisma/schema.prisma`                                                      |
+| API NestJS (santé, connexion JWT, CRUD blog)                             | `apps/api/src/`                                                                      |
+| Validation par les schémas Zod partagés (API + admin)                    | `packages/validations/src/blogPost.ts`, `apps/api/src/common/zod-validation.pipe.ts` |
+| Admin Next.js (connexion, liste/création/édition/suppression d'articles) | `apps/admin/src/`                                                                    |
+| Tests unitaires (Prisma/fetch/cookies mockés, sans base réelle)          | `apps/api/src/**/*.spec.ts`, `apps/admin/src/**/*.test.{ts,tsx}`                     |
 
 ## Bloqué — aucune infrastructure réelle acquise
 
-| Élément                   | Bloqué par                                                                                  |
-| ------------------------- | ------------------------------------------------------------------------------------------- |
-| Instance PostgreSQL       | Aucun hébergeur choisi (Railway/Fly.io/VPS/Neon/Supabase — décision à prendre avec Libaase) |
-| Première migration Prisma | Dépend de la ligne précédente (`prisma migrate dev` exige une connexion réelle)             |
-| `JWT_SECRET` réel         | Doit être généré et gardé hors dépôt, pas inventé ici (voir `apps/api/.env.example`)        |
-| Compte(s) admin           | Aucun utilisateur réel fourni — pas de seed avec identifiants                               |
-| Hébergement `apps/api`    | Aucun compte Railway/Fly.io/VPS créé (MODULE 16.1)                                          |
-| `apps/admin`              | Reporté à la passe 2 (ADR 0010, décision 1) — dépend d'une API fonctionnelle, pas l'inverse |
+| Élément                             | Bloqué par                                                                                  |
+| ----------------------------------- | ------------------------------------------------------------------------------------------- |
+| Instance PostgreSQL                 | Aucun hébergeur choisi (Railway/Fly.io/VPS/Neon/Supabase — décision à prendre avec Libaase) |
+| Première migration Prisma           | Dépend de la ligne précédente (`prisma migrate dev` exige une connexion réelle)             |
+| `JWT_SECRET`/`API_URL` réels        | Doivent être générés et gardés hors dépôt, pas inventés ici (voir les `.env.example`)       |
+| Premier compte admin réel           | Aucun utilisateur fourni — pas de seed, à créer à la main contre une base réelle (ADR 0011) |
+| Hébergement `apps/api`/`apps/admin` | Aucun compte Railway/Fly.io/VPS/Vercel créé pour ces deux apps (MODULE 16.1)                |
 
 ## Prochaine étape pour débloquer
 
@@ -35,10 +36,10 @@ par une base de données réelle.
 3. `pnpm --filter @portfolio/api exec prisma migrate dev --name init`
    pour générer la première migration contre la base réelle.
 4. Générer un `JWT_SECRET` réel (`openssl rand -base64 48`), le poser en
-   variable d'environnement.
-5. Choisir l'hébergeur de `apps/api` (Railway/Fly.io/VPS) et le déployer —
-   `apps/api` n'est pas encore câblé à `.github/workflows/deploy.yml`
-   (ADR 0010, décision 8).
-6. Une fois l'API fonctionnelle en production, ouvrir la passe 2 :
-   `apps/admin` (Next.js, authentification, formulaires de gestion des
-   articles).
+   variable d'environnement (`apps/api` ET `apps/admin`, même valeur).
+5. Créer le premier compte admin à la main (`prisma studio` ou script à
+   exécuter une fois) — jamais par un endpoint d'inscription public
+   (ADR 0011).
+6. Choisir l'hébergeur de `apps/api` (Railway/Fly.io/VPS) et d'`apps/admin`
+   (Vercel possible, même stack qu'`apps/web`), les déployer — ni l'un ni
+   l'autre n'est encore câblé à `.github/workflows/deploy.yml`.
