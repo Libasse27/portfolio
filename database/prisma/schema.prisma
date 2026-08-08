@@ -1,0 +1,40 @@
+// Schéma posé, aucune migration exécutée (ADR 0010, décision 3) :
+// `prisma migrate dev` a besoin d'une connexion PostgreSQL réelle, qui
+// n'existe pas encore (voir docs/16-DashboardAdmin/README.md).
+// `prisma validate` et `prisma generate` fonctionnent sans connexion.
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Miroir de blogPostFrontmatterSchema (packages/validations/src/blogPost.ts,
+// ADR 0009) + slug (dérivé du titre à la création, apps/api/src/blog) et
+// corps (Markdown/MDX). Seule entité gérée en base cette passe (ADR 0010,
+// décision 2) — les autres types de contenu restent fichiers.
+model BlogPost {
+  id              String    @id @default(cuid())
+  slug            String    @unique
+  titre           String
+  extrait         String
+  corps           String
+  datePublication String
+  dateMiseAJour   String?
+  theme           Theme
+  tags            String[]
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+// Reprend les ids de pôle existants (about.ts, ADR 0009 décision 3) plutôt
+// qu'une taxonomie de couleurs séparée.
+enum Theme {
+  dev
+  compta
+  infra
+}
